@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Synapse Scheduler</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">AI Personal Assistant</p>
+      <h1>Synapse Scheduler</h1>
+      <p class="subtitle">
+        Build a smart plan for your day. Answer a few questions, break down tasks,
+        and let the assistant recommend priorities, next steps, and calendar blocks.
+      </p>
+    </div>
+    <div class="hero-card">
+      <h2>Today's Focus</h2>
+      <ul>
+        <li>Clarify goals and constraints</li>
+        <li>Break tasks into outcomes</li>
+        <li>Schedule deep work and recovery</li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>Tell the assistant about your day</h2>
+      <form id="intake-form" class="intake">
+        <label>
+          Primary goal for today
+          <input id="goal" type="text" placeholder="Finish Q3 report" required />
+        </label>
+        <label>
+          Available focus hours
+          <input id="hours" type="number" min="1" max="16" step="0.5" value="6" required />
+        </label>
+        <label>
+          Energy level
+          <select id="energy">
+            <option value="high">High</option>
+            <option value="medium" selected>Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </label>
+        <label>
+          Time constraints
+          <input id="constraints" type="text" placeholder="Meetings 1-2pm, school pickup at 3pm" />
+        </label>
+        <label>
+          Task list (one per line)
+          <textarea id="tasks" rows="6" placeholder="Draft outline\nCollect stats\nDesign slides"></textarea>
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="primary">Build my schedule</button>
+          <button type="button" id="reset" class="ghost">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel grid">
+      <div>
+        <h2>Assistant insights</h2>
+        <div id="insights" class="card"></div>
+      </div>
+      <div>
+        <h2>Recommended next steps</h2>
+        <ol id="next-steps" class="card list"></ol>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Schedule recommendations</h2>
+      <div id="schedule" class="schedule"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Calendar placement</h2>
+      <div class="calendar">
+        <div class="calendar-header">
+          <span>Time</span>
+          <span>Block</span>
+        </div>
+        <div id="calendar-body"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Designed for thoughtful planning. Adjust blocks as your day evolves.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
